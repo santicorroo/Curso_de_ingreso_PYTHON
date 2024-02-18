@@ -35,9 +35,13 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
-    
-    
+        hora=int(self.txt_hora.get())
+
+        match str(hora):
+            case '7' | '8' | '9' | '10' | '11':
+                alert('utn','es de mañana')
+            case _:
+                pass
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

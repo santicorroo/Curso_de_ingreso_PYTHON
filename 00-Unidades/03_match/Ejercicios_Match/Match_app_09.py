@@ -56,8 +56,47 @@ class App(customtkinter.CTk):
         self.btn_informar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
         
     
-    def btn_informar_on_click(self):
-        pass
+    def btn_informar_on_click(self):4
+        estacion=self.combobox_estaciones.get()
+        destino=self.combobox_destino.get()
+        precio=15000
+
+        #Bariloche tiene un aumento del 20% 
+        #Cataratas y Córdoba tienen un descuento del 10%
+        #Mar del plata tiene un descuento del 20%
+
+        match estacion:
+            case "Invierno":
+                if destino== "Bariloche" or "Mar del plata":
+                    
+                    mensaje='el precio va a estar '+ str(precio*1.20)
+                elif destino=="Cataratas" or "Cordoba":
+                    
+                    mensaje='el precio va a estar '+str(precio*0.90)
+        #Bariloche tiene un descuento del 20%
+        #Cataratas y Cordoba tienen un aumento del 10%
+        #Mar del plata tiene un aumento del 20%
+            case "Verano":
+                if destino=="Bariloche" or "Mar del Plata":
+                    mensaje='el precio va a estar '+str(precio*0.90)
+                elif destino=="Cataratas" or "Cordoba":
+                    mensaje='el precio va a estar '+(precio*1.10)
+        #Bariloche tiene un aumento del 10%
+        #Cataratas tiene un aumento del 10%
+        #Mar del plata tiene un aumento del 10%
+        #Córdoba tiene precio sin descuento
+            case _:
+                if destino=="Cordoba":
+                    mensaje='El precio se mantiene en '+str(precio)
+                else:
+                    mensaje='El precio va a estar '+str(precio*1.10)
+
+        alert('Info del viaje',mensaje)
+                
+                    
+        
+        
+
             
     
 if __name__ == "__main__":

@@ -14,10 +14,9 @@ Ejercicio: Match_02
 Enunciado:
 Al presionar el botón ‘Informar’ mostrar mediante alert los siguientes mensajes 
 en función del mes seleccionado:
-    Si estamos en invierno: ‘¡Abrígate que hace frío!’
-    Si aún no llegó el invierno: ‘Falta para el invierno..’
-    Si ya pasó el invierno: ‘¡Ya pasamos frío, ahora calor!’
-	
+Si estamos en invierno: ‘¡Abrígate que hace frío!’
+Si aún no llegó el invierno: ‘Falta para el invierno..’
+Si ya pasó el invierno: ‘¡Ya pasamos frío, ahora calor!’
 Aclaracion: tomamos a Julio y Agosto como los meses de invierno
 
 '''
@@ -41,7 +40,20 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+
+        mes=self.combobox_mes.get()
+
+        match mes:
+            case 'Julio' | ' agosto':
+                mensaje= '¡Abrígate que hace frío!'
+            
+            case 'Septiembre'| 'Octubre'| 'Noviembre' |'Diciembre':
+                mensaje='ya pasamos frio, ahora calor'
+            
+            case _:
+                mensaje='falta para el invierno'
+        
+        alert('utn',mensaje)
     
     
 if __name__ == "__main__":
